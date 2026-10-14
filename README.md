@@ -31,3 +31,8 @@ The script can be tested by deploying a project, trying both roster options, ent
 https://github.com/httpsriaah/deploy_agent_httpsriaah
 
 This project has helped me understand how Bash scripting can automate tasks, manage files and permissions, and make setting up an application easier.
+
+
+## Project Demonstration Video
+
+Watch the video here (https://youtu.be/hpcnImazunQ)
