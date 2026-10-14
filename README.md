@@ -1,60 +1,33 @@
-# Attendance Tracker Deployment Agent
+# Attendance Tracker Deployment System
 
-## Overview
-This project contains a Bash deployment script that sets up an attendance tracking project. It copies required files, configures permissions, supports student roster creation, allows threshold customization, runs the attendance checker, and archives attendance logs.
+## About the Project
+This project uses a Bash script to make setting up a student attendance tracker easier. Instead of creating folders and copying files manually, the script automates the process and guides the user through each step.
 
 ## Requirements
-- Bash
-- Python 3
-- zip
-- The template files in the templates/ directory
+Before running the script, make sure Bash, Python 3, and the `zip` command are available. The required files should also be inside the `templates/` folder.
 
 ## How to Run
-From the project directory, run:
+Open the terminal in the project directory and run:
 
-    chmod +x deploy_agent.sh
-    ./deploy_agent.sh
+```bash
+chmod +x deploy_agent.sh
+./deploy_agent.sh
+```
 
-Follow the prompts to choose a project name, select or create a student roster, configure thresholds, run the attendance checker, and archive available logs.
+Follow the instructions in the terminal to choose a project name, set up the student roster, and adjust the attendance thresholds if needed.
 
-## Features
-- Checks for required dependencies and template files.
-- Creates a project directory without overwriting an existing project.
-- Supports an existing roster or a new roster.
-- Sets executable permissions on the attendance checker.
-- Restricts configuration file permissions.
-- Allows customization of warning and failure thresholds.
-- Runs the attendance checker on request.
-- Archives available attendance and absence logs with timestamps.
-- Handles deployment interruption using signal traps.
-
-## Attendance Thresholds
-The default warning threshold is 75%, and the default failure threshold is 50%. Users can customize these values during deployment. The failure threshold must be lower than the warning threshold.
-
-## Log Archiving
-Logs are stored in the project's reports/ directory. When available, attendance.log and absent.log are copied into timestamped files under archives/attendance/ and archives/absent/. Missing logs are reported without stopping the script.
-
-## Signal Handling
-The script traps SIGINT and SIGTSTP during deployment. If deployment is interrupted, it attempts to archive the incomplete project as a ZIP file.
-
-## Project Structure
-
-    Summative/
-    ├── deploy_agent.sh
-    ├── README.md
-    ├── templates/
-    │   ├── attendance_checker.py
-    │   ├── assets.csv
-    │   └── config.json
-    └── attendance_tracker_<project_name>/
-        ├── attendance_checker.py
-        ├── Helpers/
-        │   ├── assets.csv
-        │   └── config.json
-        ├── reports/
-        └── archives/
-            ├── attendance/
-            └── absent/
+## What It Contains
+- A Bash script that creates the project folders and copies the required files.
+- A student roster that can use sample data or new student information.
+- A configuration file for setting attendance warning and failure thresholds.
+- A Python attendance checker for recording student attendance.
+- A logging and archiving system that saves available attendance and absence logs in separate folders with timestamps.
+- Error handling for checking required tools and managing interruptions during deployment.
 
 ## Testing
-The deployment script was checked with bash -n deploy_agent.sh. The attendance checker was run on a test project, and the log archiving commands were tested with a generated attendance log.
+The script can be tested by deploying a project, trying both roster options, entering different threshold values, running the attendance checker, and checking the generated logs. You can also test how the script handles existing project folders and interruptions.
+
+## GitHub Repository
+https://github.com/httpsriaah/deploy_agent_httpsriaah
+
+This project has helped me understand how Bash scripting can automate tasks, manage files and permissions, and make setting up an application easier.
